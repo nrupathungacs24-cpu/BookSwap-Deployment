@@ -13,18 +13,31 @@ dotenv.config();
 const path = require('path');
 
 const serviceAccountPath = process.env.FIREBASE_SERVICE_ACCOUNT_PATH;
+const serviceAccountRaw = process.env.FIREBASE_SERVICE_ACCOUNT;
 
-if (serviceAccountPath) {
+if (serviceAccountRaw) {
+    try {
+        const serviceAccount = JSON.parse(serviceAccountRaw);
+        admin.initializeApp({
+            credential: admin.credential.cert(serviceAccount)
+        });
+        console.log('Firebase Admin initialized using raw JSON from environment variable.');
+    } catch (error) {
+        console.error('Error parsing FIREBASE_SERVICE_ACCOUNT env var:', error.message);
+        process.exit(1);
+    }
+} else if (serviceAccountPath) {
     // Resolve path relative to the process current working directory (project root)
     const absolutePath = path.resolve(process.cwd(), serviceAccountPath);
     const serviceAccount = require(absolutePath);
     admin.initializeApp({
         credential: admin.credential.cert(serviceAccount)
     });
+    console.log(`Firebase Admin initialized using service account key at: ${absolutePath}`);
 } else {
-    // Fallback for local dev without specific key path (might fail if not authorized via gcloud)
-    // or checks for GOOGLE_APPLICATION_CREDENTIALS env var automatically
+    // Fallback for local dev or GOOGLE_APPLICATION_CREDENTIALS
     admin.initializeApp();
+    console.log('Firebase Admin initialized using default credentials.');
 }
 
 const db = admin.firestore();
