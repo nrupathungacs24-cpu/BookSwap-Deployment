@@ -20,16 +20,10 @@ services:
     autoDeploy: true
 
   # Frontend Static Site
-  - type: web
+  - type: static
     name: bookswap-frontend
-    runtime: static
-    region: oregon
-    plan: free
     buildCommand: cd frontend && npm install && npm run build
     staticPublishPath: frontend/dist/book-swap
-    envVars:
-      - key: NODE_ENV
-        value: production
     routes:
       - type: rewrite
         source: /*
@@ -41,4 +35,3 @@ services:
       - path: /*
         name: X-Content-Type-Options
         value: nosniff
-    autoDeploy: true
