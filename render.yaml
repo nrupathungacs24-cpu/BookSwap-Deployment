@@ -5,7 +5,7 @@ services:
     runtime: node
     region: oregon
     plan: free
-    buildCommand: cd backend && npm install
+    buildCommand: cd backend && npm iweb
     startCommand: cd backend && npm start
     envVars:
       - key: NODE_ENV
