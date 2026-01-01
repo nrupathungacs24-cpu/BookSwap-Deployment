@@ -2,13 +2,14 @@ services:
   - type: web
     name: bookswap-backend
     runtime: node
+    plan: free
     buildCommand: cd backend && npm install
     startCommand: cd backend && npm start
     envVars:
       - key: FIREBASE_SERVICE_ACCOUNT
         sync: false
-  - type: web
+  - type: static
     name: bookswap-frontend
-    env: static
+    plan: free
     buildCommand: cd frontend && npm install && npm run build
     staticPublishPath: frontend/dist/book-swap
