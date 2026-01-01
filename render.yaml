@@ -8,8 +8,10 @@ services:
   envVars:
   - key: FIREBASE_SERVICE_ACCOUNT
     sync: false
-- type: static_site
+
+- type: web
   name: bookswap-frontend
+  runtime: static
   plan: free
   buildCommand: cd frontend && npm install && npm run build
   staticPublishPath: frontend/dist/book-swap
