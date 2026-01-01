@@ -1,25 +1,14 @@
 services:
-  # Backend Web Service
   - type: web
     name: bookswap-backend
     runtime: node
-    region: oregon
     plan: free
     buildCommand: cd backend && npm install
     startCommand: cd backend && npm start
     envVars:
-      - key: NODE_ENV
-        value: production
-      - key: PORT
-        value: 3000
       - key: FIREBASE_SERVICE_ACCOUNT
         sync: false
-        # You'll need to add this manually in Render dashboard
-        # Paste the entire contents of service-account-key.json as a JSON string
-    healthCheckPath: /
-    autoDeploy: true
 
-  # Frontend Static Site
   - type: static
     name: bookswap-frontend
     buildCommand: cd frontend && npm install && npm run build
