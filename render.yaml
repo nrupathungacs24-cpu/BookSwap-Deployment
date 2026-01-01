@@ -20,7 +20,7 @@ services:
     autoDeploy: true
 
   # Frontend Static Site
-  - type: web
+  - type: static
     name: bookswap-frontend
     runtime: static
     region: oregon
