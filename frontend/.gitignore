@@ -43,7 +43,7 @@ Thumbs.db
 
 # Environment File
 
-/src/environments/
+# /src/environments/
 
 # Firebase
 .firebase

@@ -26,5 +26,5 @@ backend/service-account-key-*.json
 # Frontend build output
 frontend/dist/
 frontend/.angular/
-frontend/src/environments/environment.prod.ts
-frontend/src/environments/environment.ts
+# frontend/src/environments/environment.prod.ts
+# frontend/src/environments/environment.ts
