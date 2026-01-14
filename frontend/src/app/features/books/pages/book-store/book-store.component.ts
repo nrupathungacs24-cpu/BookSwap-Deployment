@@ -18,6 +18,7 @@ export class BookStoreComponent implements OnInit {
   isModalOpen = false;
   selectedISBN!: string;
   selectedUserUID!: string;
+  selectedBookId!: string;
   currentUserUID: string | undefined;
 
   constructor(
@@ -96,9 +97,10 @@ export class BookStoreComponent implements OnInit {
     });
   }
 
-  openBookDetailsModal(isbn: string, userUID: string) {
+  openBookDetailsModal(isbn: string, userUID: string, bookId: string) {
     this.selectedISBN = isbn;
     this.selectedUserUID = userUID;
+    this.selectedBookId = bookId;
     this.isModalOpen = true;
   }
 

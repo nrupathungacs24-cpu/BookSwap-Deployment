@@ -56,6 +56,14 @@ export class AuthService {
         return this.afAuth.currentUser;
     }
 
+    async getIdToken(): Promise<string | null> {
+        const user = await this.afAuth.currentUser;
+        if (user) {
+            return await user.getIdToken();
+        }
+        return null;
+    }
+
     signOut(): Promise<void> {
         return this.afAuth.signOut();
     }

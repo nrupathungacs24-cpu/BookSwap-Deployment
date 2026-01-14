@@ -6,6 +6,7 @@ import { SharedModule } from './shared/shared.module';
 import { AuthModule } from './features/auth/auth.module';
 import { BooksModule } from './features/books/books.module';
 import { ProfileModule } from './features/profile/profile.module';
+import { ChatModule } from './features/chat/chat.module';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -45,6 +46,7 @@ import { DatePipe } from '@angular/common';
     AuthModule,
     BooksModule, // Imported
     ProfileModule, // Imported
+    ChatModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,

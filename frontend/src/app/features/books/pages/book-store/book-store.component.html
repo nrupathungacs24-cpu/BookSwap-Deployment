@@ -45,7 +45,7 @@
                     <div class="w-[200px] h-[260px] mx-auto flex justify-center items-center">
                         <img class="max-h-[200px] group-hover:scale-110 transition duration-300 cursor-pointer"
                             [src]="book.coverImage" alt="{{ book.title }} Image"
-                            (click)="openBookDetailsModal(book.isbn, book.userUID)" />
+                            (click)="openBookDetailsModal(book.isbn, book.userUID, book.id)" />
                     </div>
                     <div class="absolute top-5 right-4">
                         <div class="px-2 py-1 bg-gray-800 text-white hover:bg-gray-950 text-sm font-semibold rounded">{{
@@ -63,7 +63,7 @@
             </div>
         </div>
         <app-book-detail *ngIf="isModalOpen" [isbn]="selectedISBN" [ownerUid]="selectedUserUID"
-            (closeModalEvent)="closeModal()"></app-book-detail>
+            [bookId]="selectedBookId" (closeModalEvent)="closeModal()"></app-book-detail>
     </div>
 </section>
 <app-footer></app-footer>

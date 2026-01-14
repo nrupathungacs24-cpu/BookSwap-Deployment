@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../../../core/auth/auth.service';
 import { generateRandomUsernameAndAvatar } from '../../../../shared/utils/avatar.utils';
-import { Firestore, collection, addDoc } from '@angular/fire/firestore';
+import { Firestore, collection, addDoc, doc, setDoc } from '@angular/fire/firestore';
 
 @Component({
     selector: 'app-auth-modal',

@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://bookswap-backend.onrender.com/api',
+  apiUrl: 'https://YOUR_BACKEND_URL.onrender.com/api', // PLACEHOLDER: Replace with actual Render Backend URL after deployment
   firebase: {
     apiKey: "AIzaSyCzt9aAR-o0Bmwg2c8MSuRJCCw4i-Cz7pE",
     authDomain: "bookswap-b7eae.firebaseapp.com",

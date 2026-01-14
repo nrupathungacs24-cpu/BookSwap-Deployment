@@ -31,6 +31,13 @@
                     <a (click)="onStoreButtonClick()"
                         class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#0DBE5E]  md:p-0 cursor-pointer">Store</a>
                 </li>
+                <li>
+                    <a routerLink="/chats"
+                        class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#0DBE5E]  md:p-0 cursor-pointer">Chats</a>
+                </li>
+                <li class="flex items-center">
+                    <app-notification-bell></app-notification-bell>
+                </li>
             </ul>
         </div>
         <div class="mt-6 lg:hidden" [hidden]="!isMobileMenuOpen">
@@ -52,6 +59,11 @@
                         class="block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900">Contact</a>
                     <a (click)="onStoreButtonClick(); toggleMobileMenu()"
                         class="block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 cursor-pointer">Store</a>
+                    <a routerLink="/chats" (click)="toggleMobileMenu()"
+                        class="block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 cursor-pointer">Chats</a>
+                    <div class="px-3 py-2">
+                        <app-notification-bell></app-notification-bell>
+                    </div>
                 </div>
             </div>
         </div>
